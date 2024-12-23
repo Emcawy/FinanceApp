@@ -1,0 +1,26 @@
+﻿<Application x:Class="FinanceApp.App"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:FinanceApp"
+        StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <!-- Определение массивов для типов транзакций и категорий расходов для ComboBox -->
+        <x:Array x:Key="TransactionTypes" Type="{x:Type local:Models.TransactionType}">
+            <local:Models.TransactionType>Expense</local:Models.TransactionType>
+            <local:Models.TransactionType>Income</local:Models.TransactionType>
+        </x:Array>
+        <x:Array x:Key="ExpenseCategories" Type="{x:Type local:Models.ExpenseCategory}">
+            <local:Models.ExpenseCategory>Housing</local:Models.ExpenseCategory>
+            <local:Models.ExpenseCategory>Food</local:Models.ExpenseCategory>
+            <local:Models.ExpenseCategory>Transport</local:Models.ExpenseCategory>
+            <local:Models.ExpenseCategory>Health</local:Models.ExpenseCategory>
+            <local:Models.ExpenseCategory>Entertainment</local:Models.ExpenseCategory>
+            <local:Models.ExpenseCategory>Clothing</local:Models.ExpenseCategory>
+            <local:Models.ExpenseCategory>PersonalCare</local:Models.ExpenseCategory>
+            <local:Models.ExpenseCategory>Education</local:Models.ExpenseCategory>
+            <local:Models.ExpenseCategory>Unforeseen</local:Models.ExpenseCategory>
+        </x:Array>
+        <!-- Добавление конвертера PlanConverter в ресурсы -->
+        <local:PlanConverter x:Key="PlanConverter"/>
+    </Application.Resources>
+</Application>
