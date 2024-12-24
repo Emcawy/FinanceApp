@@ -1,16 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FinanceApp.Models;
 using System.Globalization;
 using System.Windows.Data;
 using System.Windows.Controls;
-using System.Windows;
+using FinanceApp.Models;
 using FinanceApp.ViewModels;
 
-namespace FinanceApp.Views
+namespace FinanceApp.Converters
 {
     // Класс для преобразования данных из TextBox в ListView
     public class PlanConverter : IValueConverter

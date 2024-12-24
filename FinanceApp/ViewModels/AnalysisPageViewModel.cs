@@ -99,7 +99,7 @@ namespace FinanceApp.ViewModels
                             if (Enum.TryParse(parts[0], out ExpenseCategory category) && decimal.TryParse(parts[1], out decimal plan))
                             {
                                 // Добавление плана в словарь
-                                MonthlyPlans[category] = plan;
+                                _monthlyPlans[category] = plan;
                             }
                         }
                     }
@@ -149,7 +149,7 @@ namespace FinanceApp.ViewModels
                 // Суммирование расходов по текущей категории
                 var actualExpense = expenseTransactions.Where(t => t.Category == category).Sum(t => t.Amount);
                 // Получение запланированной суммы расходов
-                decimal planned = MonthlyPlans.ContainsKey(category) ? MonthlyPlans[category] : 0;
+                decimal planned = _monthlyPlans.ContainsKey(category) ? _monthlyPlans[category] : 0;
                 // Вычисление разницы между запланированной и фактической суммой расходов
                 decimal difference = planned - actualExpense;
                 // Добавление информации в коллекцию
