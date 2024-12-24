@@ -25,5 +25,10 @@ namespace FinanceApp.Views
             // Установка DataContext для MainPage
             DataContext = new MainPageViewModel();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

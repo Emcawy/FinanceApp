@@ -122,19 +122,22 @@ namespace FinanceApp.ViewModels
                 InsideLabelPosition = 0.8,
                 AngleSpan = 360,
                 StartAngle = 0,
-                OutsideLabelFormat = "{0}: {1:0} ({2:0%})",
+                OutsideLabelFormat = "{0}: {1:0} ({2:P1})",
             };
 
             // Перебор всех категорий и добавление их на круговую диаграмму
             foreach (var categoryInfo in CategoryInfos)
             {
-                pieSeries.Slices.Add(new PieSlice(categoryInfo.Category.ToString(), (double)categoryInfo.Actual) { IsExploded = true });
+                // Проверка, что фактические расходы не равны нулю
+                if (categoryInfo.Actual > 0)
+                {
+                    pieSeries.Slices.Add(new PieSlice(categoryInfo.Category.ToString(), (double)categoryInfo.Actual) { IsExploded = true });
+                }
             }
             // Добавление серии на модель
             plotModel.Series.Add(pieSeries);
             return plotModel;
-        }
-        // Метод для вычисления информации по каждой категории
+        }        // Метод для вычисления информации по каждой категории
         private void CalculateCategoryInfo()
         {
             // Получение транзакций за текущий месяц
